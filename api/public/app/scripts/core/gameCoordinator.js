@@ -493,6 +493,7 @@ class GameCoordinator {
 
     this.pointsDisplay.innerHTML = '00';
     this.highScoreDisplay.innerHTML = this.highScore || '00';
+    
     this.clearDisplay(this.fruitDisplay);
 
     const volumePreference = parseInt(
