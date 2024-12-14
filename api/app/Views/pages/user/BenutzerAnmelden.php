@@ -29,10 +29,6 @@
 
                         </form>
 
-                        <hr class="my-4">
-
-                        <a href="<?php echo base_url('benutzer/gast');?>">Als Gast fortfahren</a>
-
                     </div>
                 </div>
             </div>

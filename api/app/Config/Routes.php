@@ -16,7 +16,6 @@ $routes->get('benutzer/erstellen', 'BenutzerController::getBenutzerErstellen');
 $routes->post('benutzer/erstellen', 'BenutzerController::postBenutzerErstellen');
 $routes->post('benutzer/anmelden', 'BenutzerController::postBenutzerAnmelden');
 $routes->get('benutzer/gast', 'BenutzerController::getGastAnmelden');
-$routes->get('login', 'Admin\AdminController::abweisung'); // used for expired project
 
 
 //protected routes
@@ -24,3 +23,6 @@ $routes->get('login', 'Admin\AdminController::abweisung'); // used for expired p
 //benutzer routes
 $routes->get('profil', 'BenutzerController::getBenutzerProfil');
 $routes->get('willkommen', 'BenutzerController::getBenutzerWillkommen');
+$routes->get('game', 'GameController::index');
+$routes->post('game/submitHighscore/(:num)', 'GameController::postSubmitHighscore/$1');
+$routes->get('game/getHighscore', 'GameController::getHighscore');

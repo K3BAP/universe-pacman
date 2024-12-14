@@ -14,8 +14,9 @@
         <div class="card-body">
             <div class="container text-wrap">
                 <h5>
-                    Sie haben sich erfolgreich angemeldet! Sie können sich nun in tasks eintragen.
+                    Sie haben sich erfolgreich angemeldet! Du kannst nun das Spiel starten.
                 </h5>
+                <a href="<?= base_url('game') ?>" class="btn btn-primary">Spiel Starten</a>
             </div>
         </div>
     </div>

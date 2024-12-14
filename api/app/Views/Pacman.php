@@ -7,6 +7,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src='https://www.googletagmanager.com/gtag/js?id=UA-142539004-1'></script>
     <script>
+        const BASE_URL = '<?= base_url() ?>';
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
@@ -142,6 +143,8 @@
       </div>
 
       <script>
+        //import GameCoordinator from "<?php //= base_url() ?>//app/scripts/core/gameCoordinator";
+
         window.onload = () => {
           let gameCoordinator = new GameCoordinator();
         }

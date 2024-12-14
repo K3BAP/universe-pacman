@@ -8,7 +8,7 @@ class PersonenModel extends Model
 {
     protected $table = 'personen';
     protected $primaryKey = 'id';
-    protected $allowedFields = ['vorname', 'nachname', 'email', 'passwort', 'permission'];
+    protected $allowedFields = ['vorname', 'nachname', 'email', 'passwort', 'permission', 'highscore'];
 
     protected $validationRules = 'personen';
 

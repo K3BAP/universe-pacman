@@ -403,7 +403,9 @@ class GameCoordinator {
     this.allowPacmanMovement = false;
     this.allowPause = false;
     this.cutscene = true;
+    this.getHighscore();
     this.highScore = localStorage.getItem('highScore');
+    console.log(this.highScore);
 
     if (this.firstGame) {
       setInterval(() => {
@@ -796,7 +798,7 @@ class GameCoordinator {
     if (this.points > (this.highScore || 0)) {
       this.highScore = this.points;
       this.highScoreDisplay.innerText = this.points;
-      localStorage.setItem('highScore', this.highScore);
+      this.submitHighscore(this.points);
     }
 
     if (this.points >= 10000 && !this.extraLifeGiven) {
@@ -880,7 +882,7 @@ class GameCoordinator {
    * Displays GAME OVER text and displays the menu so players can play again
    */
   gameOver() {
-    localStorage.setItem('highScore', this.highScore);
+    this.submitHighscore(this.highScore);
 
     new Timer(() => {
       this.displayText(
@@ -1255,6 +1257,50 @@ class GameCoordinator {
         timer => timer.timerId !== e.detail.timer.timerId,
       );
     }
+  }
+
+
+  submitHighscore(highscore) {
+    fetch('http://localhost/pacman/public/game/submitHighscore', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ highscore: highscore })
+    })
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            console.log('Highscore submitted:', highscore);
+            localStorage.setItem('highScore', highscore);
+          } else {
+            console.error('Failed to submit highscore:', data.error);
+          }
+        })
+        .catch(error => {
+          console.error('Error submitting highscore:', error);
+        });
+  }
+  getHighscore() {
+    fetch('http://localhost/pacman/public/game/getHighscore', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            console.log('Highscore:', data.highscore);
+            localStorage.setItem('highScore', data.highscore);
+          } else {
+            console.error('Failed to fetch highscore:', data.error);
+            // localStorage.setItem('highScore', 0);
+          }
+        })
+        .catch(error => {
+          console.error('Error fetching highscore:', error);
+        });
   }
 }
 

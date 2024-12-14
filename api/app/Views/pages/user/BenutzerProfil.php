@@ -12,10 +12,11 @@
             </h3>
         </div>
         <div class="card-body">
+            <a href="<?= base_url('game') ?>" class="btn btn-primary">Spiel Starten</a>
             <div class="container text-wrap">
                 <h5>
 <!--                    TODO-->
-                    Willkommen auf ihrer persönlichen Seite. Soon™ können Sie hier ihre Daten einsehen und ändern.
+                    High Scores
                 </h5>
             </div>
         </div>

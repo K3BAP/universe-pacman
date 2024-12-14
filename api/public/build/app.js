@@ -1199,13 +1199,13 @@ class GameCoordinator {
     });
 
     this.gameStartButton.addEventListener(
-      'click',
-      this.startButtonClick.bind(this),
+        'click',
+        this.startButtonClick.bind(this),
     );
     this.pauseButton.addEventListener('click', this.handlePauseKey.bind(this));
     this.soundButton.addEventListener(
-      'click',
-      this.soundButtonClick.bind(this),
+        'click',
+        this.soundButtonClick.bind(this),
     );
 
     const head = document.getElementsByTagName('head')[0];
@@ -1217,6 +1217,50 @@ class GameCoordinator {
 
     head.appendChild(link);
   }
+  submitHighscore(highscore) {
+    fetch(BASE_URL + 'game/submitHighscore/' + highscore, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ highscore: highscore })
+    })
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            console.log('Highscore submitted:', data.highscore);
+            localStorage.setItem('highScore', data.highscore);
+          } else {
+            console.error('Failed to submit highscore:', data.error);
+          }
+        })
+        .catch(error => {
+          console.error('Error submitting highscore:', error);
+        });
+  }
+  getHighscore() {
+    return fetch(BASE_URL + 'game/getHighscore', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            console.log('Retrieved Highscore:', data.highscore);
+            localStorage.setItem('highScore', data.highscore);
+          } else {
+            console.error('Failed to fetch highscore:', data.error);
+            // localStorage.setItem('highScore', 0);
+          }
+        })
+        .catch(error => {
+          console.error('Error fetching highscore:', error);
+        });
+  }
+
+
 
   /**
    * Recursive method which determines the largest possible scale the game's graphics can use
@@ -1224,12 +1268,12 @@ class GameCoordinator {
    */
   determineScale(scale) {
     const availableScreenHeight = Math.min(
-      document.documentElement.clientHeight,
-      window.innerHeight || 0,
+        document.documentElement.clientHeight,
+        window.innerHeight || 0,
     );
     const availableScreenWidth = Math.min(
-      document.documentElement.clientWidth,
-      window.innerWidth || 0,
+        document.documentElement.clientWidth,
+        window.innerWidth || 0,
     );
     const scaledTileSize = this.tileSize * scale;
 
@@ -1240,8 +1284,8 @@ class GameCoordinator {
     const mazeTileWidth = this.mazeArray[0][0].split('').length;
 
     if (
-      scaledTileSize * mazeTileHeight < availableScreenHeight
-      && scaledTileSize * mazeTileWidth < availableScreenWidth
+        scaledTileSize * mazeTileHeight < availableScreenHeight
+        && scaledTileSize * mazeTileWidth < availableScreenWidth
     ) {
       return this.determineScale(scale + 1);
     }
@@ -1431,17 +1475,17 @@ class GameCoordinator {
         this.createElements(imgSources, 'img', totalSources, this),
         this.createElements(audioSources, 'audio', totalSources, this),
       ])
-        .then(() => {
-          loadingContainer.style.opacity = 0;
-          resolve();
+          .then(() => {
+            loadingContainer.style.opacity = 0;
+            resolve();
 
-          setTimeout(() => {
-            loadingContainer.remove();
-            this.mainMenu.style.opacity = 1;
-            this.mainMenu.style.visibility = 'visible';
-          }, 1500);
-        })
-        .catch(this.displayErrorMessage);
+            setTimeout(() => {
+              loadingContainer.remove();
+              this.mainMenu.style.opacity = 1;
+              this.mainMenu.style.visibility = 'visible';
+            }, 1500);
+          })
+          .catch(this.displayErrorMessage);
     });
   }
 
@@ -1458,7 +1502,7 @@ class GameCoordinator {
     const preloadDiv = document.getElementById('preload-div');
     const loadingPacman = document.getElementById('loading-pacman');
     const containerWidth = loadingContainer.scrollWidth
-      - loadingPacman.scrollWidth;
+        - loadingPacman.scrollWidth;
     const loadingDotMask = document.getElementById('loading-dot-mask');
 
     const gameCoordRef = gameCoord;
@@ -1513,7 +1557,10 @@ class GameCoordinator {
     this.allowPacmanMovement = false;
     this.allowPause = false;
     this.cutscene = true;
-    this.highScore = localStorage.getItem('highScore');
+
+    this.highScore = localStorage.getItem('highScore') || 0;
+    // console.log('1. Local Coordinator High Score:', this.highScore);
+    // console.log('2. Local Storage High Score:', localStorage.getItem('highScore'));
 
     if (this.firstGame) {
       setInterval(() => {
@@ -1521,51 +1568,51 @@ class GameCoordinator {
       }, 500);
 
       this.pacman = new Pacman(
-        this.scaledTileSize,
-        this.mazeArray,
-        new CharacterUtil(),
+          this.scaledTileSize,
+          this.mazeArray,
+          new CharacterUtil(),
       );
       this.blinky = new Ghost(
-        this.scaledTileSize,
-        this.mazeArray,
-        this.pacman,
-        'blinky',
-        this.level,
-        new CharacterUtil(),
+          this.scaledTileSize,
+          this.mazeArray,
+          this.pacman,
+          'blinky',
+          this.level,
+          new CharacterUtil(),
       );
       this.pinky = new Ghost(
-        this.scaledTileSize,
-        this.mazeArray,
-        this.pacman,
-        'pinky',
-        this.level,
-        new CharacterUtil(),
+          this.scaledTileSize,
+          this.mazeArray,
+          this.pacman,
+          'pinky',
+          this.level,
+          new CharacterUtil(),
       );
       this.inky = new Ghost(
-        this.scaledTileSize,
-        this.mazeArray,
-        this.pacman,
-        'inky',
-        this.level,
-        new CharacterUtil(),
-        this.blinky,
+          this.scaledTileSize,
+          this.mazeArray,
+          this.pacman,
+          'inky',
+          this.level,
+          new CharacterUtil(),
+          this.blinky,
       );
       this.clyde = new Ghost(
-        this.scaledTileSize,
-        this.mazeArray,
-        this.pacman,
-        'clyde',
-        this.level,
-        new CharacterUtil(),
+          this.scaledTileSize,
+          this.mazeArray,
+          this.pacman,
+          'clyde',
+          this.level,
+          new CharacterUtil(),
       );
       this.fruit = new Pickup(
-        'fruit',
-        this.scaledTileSize,
-        13.5,
-        17,
-        this.pacman,
-        this.mazeDiv,
-        100,
+          'fruit',
+          this.scaledTileSize,
+          13.5,
+          17,
+          this.pacman,
+          this.mazeDiv,
+          100,
       );
     }
 
@@ -1603,11 +1650,12 @@ class GameCoordinator {
 
     this.pointsDisplay.innerHTML = '00';
     this.highScoreDisplay.innerHTML = this.highScore || '00';
+
     this.clearDisplay(this.fruitDisplay);
 
     const volumePreference = parseInt(
-      localStorage.getItem('volumePreference') || 1,
-      10,
+        localStorage.getItem('volumePreference') || 1,
+        10,
     );
     this.setSoundButtonIcon(volumePreference);
     this.soundManager.setMasterVolume(volumePreference);
@@ -1616,7 +1664,10 @@ class GameCoordinator {
   /**
    * Calls necessary setup functions to start the game
    */
-  init() {
+  async init() {
+    await this.getHighscore();
+    this.reset();
+
     this.registerEventListeners();
 
     this.gameEngine = new GameEngine(this.maxFps, this.entityList);
@@ -1643,13 +1694,13 @@ class GameCoordinator {
           const type = block === 'o' ? 'pacdot' : 'powerPellet';
           const points = block === 'o' ? 10 : 50;
           const dot = new Pickup(
-            type,
-            this.scaledTileSize,
-            columnIndex,
-            rowIndex,
-            this.pacman,
-            this.dotContainer,
-            points,
+              type,
+              this.scaledTileSize,
+              columnIndex,
+              rowIndex,
+              this.pacman,
+              this.dotContainer,
+              points,
           );
 
           entityList.push(dot);
@@ -1759,8 +1810,8 @@ class GameCoordinator {
    */
   updateFruitDisplay(rawImageSource) {
     const parsedSource = rawImageSource.slice(
-      rawImageSource.indexOf('(') + 1,
-      rawImageSource.indexOf(')'),
+        rawImageSource.indexOf('(') + 1,
+        rawImageSource.indexOf(')'),
     );
 
     if (this.fruitDisplay.children.length === 7) {
@@ -1823,10 +1874,10 @@ class GameCoordinator {
 
     directions.forEach((direction) => {
       document
-        .getElementById(`button-${direction}`)
-        .addEventListener('touchstart', () => {
-          this.changeDirection(direction);
-        });
+          .getElementById(`button-${direction}`)
+          .addEventListener('touchstart', () => {
+            this.changeDirection(direction);
+          });
     });
   }
 
@@ -1905,7 +1956,7 @@ class GameCoordinator {
     if (this.points > (this.highScore || 0)) {
       this.highScore = this.points;
       this.highScoreDisplay.innerText = this.points;
-      localStorage.setItem('highScore', this.highScore);
+      this.submitHighscore(this.points);
     }
 
     if (this.points >= 10000 && !this.extraLifeGiven) {
@@ -1917,18 +1968,18 @@ class GameCoordinator {
 
     if (e.detail.type === 'fruit') {
       const left = e.detail.points >= 1000
-        ? this.scaledTileSize * 12.5
-        : this.scaledTileSize * 13;
+          ? this.scaledTileSize * 12.5
+          : this.scaledTileSize * 13;
       const top = this.scaledTileSize * 16.5;
       const width = e.detail.points >= 1000
-        ? this.scaledTileSize * 3
-        : this.scaledTileSize * 2;
+          ? this.scaledTileSize * 3
+          : this.scaledTileSize * 2;
       const height = this.scaledTileSize * 2;
 
       this.displayText({ left, top }, e.detail.points, 2000, width, height);
       this.soundManager.play('fruit');
       this.updateFruitDisplay(
-        this.fruit.determineImage('fruit', e.detail.points),
+          this.fruit.determineImage('fruit', e.detail.points),
       );
     }
   }
@@ -1989,18 +2040,18 @@ class GameCoordinator {
    * Displays GAME OVER text and displays the menu so players can play again
    */
   gameOver() {
-    localStorage.setItem('highScore', this.highScore);
+    this.submitHighscore(this.highScore);
 
     new Timer(() => {
       this.displayText(
-        {
-          left: this.scaledTileSize * 9,
-          top: this.scaledTileSize * 16.5,
-        },
-        'game_over',
-        4000,
-        this.scaledTileSize * 10,
-        this.scaledTileSize * 2,
+          {
+            left: this.scaledTileSize * 9,
+            top: this.scaledTileSize * 16.5,
+          },
+          'game_over',
+          4000,
+          this.scaledTileSize * 10,
+          this.scaledTileSize * 2,
       );
       this.fruit.hideFruit();
 
@@ -2134,8 +2185,8 @@ class GameCoordinator {
                         entityRef.resetDefaultSpeed();
                       }
                       if (
-                        entityRef instanceof Pickup
-                        && entityRef.type !== 'fruit'
+                          entityRef instanceof Pickup
+                          && entityRef.type !== 'fruit'
                       ) {
                         this.remainingDots += 1;
                       }
@@ -2226,18 +2277,18 @@ class GameCoordinator {
     this.soundManager.play('eat_ghost');
 
     this.scaredGhosts = this.scaredGhosts.filter(
-      ghost => ghost.name !== e.detail.ghost.name,
+        ghost => ghost.name !== e.detail.ghost.name,
     );
     this.eyeGhosts += 1;
 
     this.ghostCombo += 1;
     const comboPoints = this.determineComboPoints();
     window.dispatchEvent(
-      new CustomEvent('awardPoints', {
-        detail: {
-          points: comboPoints,
-        },
-      }),
+        new CustomEvent('awardPoints', {
+          detail: {
+            points: comboPoints,
+          },
+        }),
     );
     this.displayText(position, comboPoints, pauseDuration, measurement);
 
@@ -2282,8 +2333,8 @@ class GameCoordinator {
 
     if (this.eyeGhosts === 0) {
       const sound = this.scaredGhosts.length > 0
-        ? 'power_up'
-        : this.determineSiren(this.remainingDots);
+          ? 'power_up'
+          : this.determineSiren(this.remainingDots);
       this.soundManager.setAmbience(sound);
     }
   }
@@ -2361,12 +2412,14 @@ class GameCoordinator {
     if (this.timerExists(e)) {
       window.clearTimeout(e.detail.timer.timerId);
       this.activeTimers = this.activeTimers.filter(
-        timer => timer.timerId !== e.detail.timer.timerId,
+          timer => timer.timerId !== e.detail.timer.timerId,
       );
     }
   }
-}
 
+
+
+}
 
 class GameEngine {
   constructor(maxFps, entityList) {
