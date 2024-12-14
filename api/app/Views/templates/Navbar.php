@@ -8,9 +8,12 @@
         <div class="navbar-collapse collapse" id="navbarDropdown">
             <?php $title ?? $title = 'No Title Set'; ?>
             <ul class="navbar-nav nav-underline me-auto mb-2 mb-md-0">
-<!--                <li class="nav-item">-->
-<!--                    <a class="nav-link href="--><?php //echo base_url('leaderboard');?><!--">Leaderboard</a>-->
-<!--                </li>-->
+                <li class="nav-item">
+                    <a class="nav-link" href="<?php echo base_url(); ?>leaderboard">Leaderboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?php echo base_url(); ?>game">Spiel</a>
+                </li>
             </ul>
         </div>
         <div class="navbar-text me-4">

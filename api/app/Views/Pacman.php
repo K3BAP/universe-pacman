@@ -20,6 +20,13 @@
     <link href='https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/icon?family=Material+Icons'
       rel='stylesheet'>
+      <style>
+          .invisibleA {
+              text-decoration: none; /* Remove underline */
+              color: inherit; /* Inherit text color */
+              display: block; /* Make the anchor behave like a block element */
+          }
+      </style>
     <title>Pacman</title>
   </head>
 
@@ -62,6 +69,12 @@
             <div>HIGH SCORE</div>
             <div id='high-score-display'></div>
           </div>
+            <a href="<?= base_url() ?>leaderboard" class="invisibleA">
+                <div class='column _25'>
+                    <div>LEADER</div>
+                    <div id='leader-high-score-display'></div>
+                </div>
+            </a>
         </div>
 
         <div id='maze' class='maze'>
@@ -78,7 +91,10 @@
 
         <div id='bottom-row' class='row bottom'>
           <div id='extra-lives' class='extra-lives'></div>
+
+
           <div id='fruit-display' class='fruit-display'></div>
+            <button class='leaderboard-button' onclick="window.location.href='<?= base_url() ?>leaderboard'">Leaderboard</button>
         </div>
       </div>
 

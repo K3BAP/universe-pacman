@@ -26,3 +26,6 @@ $routes->get('willkommen', 'BenutzerController::getBenutzerWillkommen');
 $routes->get('game', 'GameController::index');
 $routes->post('game/submitHighscore/(:num)', 'GameController::postSubmitHighscore/$1');
 $routes->get('game/getHighscore', 'GameController::getHighscore');
+
+$routes->get('leaderboard', 'LeaderboardController::index');
+$routes->get('leaderboard/highestscore', 'LeaderboardController::getHighestScore');

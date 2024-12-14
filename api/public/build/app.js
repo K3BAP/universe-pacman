@@ -1117,6 +1117,7 @@ class GameCoordinator {
     this.mazeCover = document.getElementById('maze-cover');
     this.pointsDisplay = document.getElementById('points-display');
     this.highScoreDisplay = document.getElementById('high-score-display');
+    this.leaderHighScoreDisplay = document.getElementById('leader-high-score-display');
     this.extraLivesDisplay = document.getElementById('extra-lives');
     this.fruitDisplay = document.getElementById('fruit-display');
     this.mainMenu = document.getElementById('main-menu-container');
@@ -1252,6 +1253,29 @@ class GameCoordinator {
             localStorage.setItem('highScore', data.highscore);
           } else {
             console.error('Failed to fetch highscore:', data.error);
+            // localStorage.setItem('highScore', 0);
+          }
+        })
+        .catch(error => {
+          console.error('Error fetching highscore:', error);
+        });
+  }
+
+  updateHighestLeaderbordScore() {
+    return fetch(BASE_URL + 'leaderboard/highestscore', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            console.log('Retrieved Leaderbord Highscore:', data.highscore);
+            localStorage.setItem('leaderbordHighScore', data.highscore);
+            this.leaderHighScoreDisplay.innerText = data.highscore;
+          } else {
+            console.error('Failed to fetch leaderbord highscore:', data.error);
             // localStorage.setItem('highScore', 0);
           }
         })
@@ -1958,6 +1982,7 @@ class GameCoordinator {
       this.highScoreDisplay.innerText = this.points;
       this.submitHighscore(this.points);
     }
+    this.updateHighestLeaderbordScore();
 
     if (this.points >= 10000 && !this.extraLifeGiven) {
       this.extraLifeGiven = true;
