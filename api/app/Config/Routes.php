@@ -39,6 +39,11 @@ $routes->group('/', ['filter' => 'userAuthentification'], function($routes) {
 });
 
 // Admin Protected routes
-$routes->group('/admin', ['filter' => 'adminAuthentification', 'namespace' => 'App\Controllers\Admin'], function($routes) {
-    $routes->get('/', 'AdminController::index');
+$routes->group('/', ['filter' => 'adminAuthentification', 'namespace' => 'App\Controllers\Admin'], function($routes) {
+    $routes->get('/admin', 'AdminController::index');
+    $routes->get('admin/personen', 'UserController::getPersonen');
+    $routes->get('admin/personen/raw', 'UserController::getPersonenRawData');
+    $routes->post('personen/bearbeiten/(:num)', 'UserController::postPersonBearbeiten/$1');
+    $routes->post('personen/loeschen/(:num)', 'UserController::postPersonLoeschen/$1');
+    $routes->post('personen/person/(:num)', 'UserController::postPersonInfo/$1');
 });

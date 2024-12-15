@@ -6,11 +6,7 @@ let formRequest;  // current running crud ajax request
 
 // Call functions after DOM is loaded
 $(document).ready(function () {
-    handleCrud('Task', 'Tasks');
-    handleCrud('Board', 'Boards');
-    handleCrud('Spalte', 'Spalten');
     handleCrud('Person', 'Personen');
-    handleCrud('Taskart', 'Taskarten');
 });
 
 $(document).ready(function () {

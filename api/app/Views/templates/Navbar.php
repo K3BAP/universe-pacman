@@ -9,19 +9,26 @@
             <?php $title ?? $title = 'No Title Set'; ?>
             <ul class="navbar-nav nav-underline me-auto mb-2 mb-md-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="<?php echo base_url(); ?>">Home</a>
+                    <a class="nav-link <?php echo ($title == 'Home') ? 'active" aria-current="page"' : '"' ?> href="<?php echo base_url(); ?>">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?php echo base_url(); ?>leaderboard">Leaderboard</a>
+                    <a class="nav-link <?php echo ($title == 'Leaderboard') ? 'active" aria-current="page"' : '"' ?> href="<?php echo base_url(); ?>leaderboard">Leaderboard</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?php echo base_url(); ?>game">Spiel</a>
+                    <a class="nav-link <?php echo ($title == 'Game Dashboard') ? 'active" aria-current="page"' : '"' ?> href="<?php echo base_url(); ?>game">Spiele</a>
                 </li>
                 <?php if ($_COOKIE['permissionLevel'] == '2') : ?>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?php echo base_url(); ?>admin">Admin</a>
-                </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle <?php echo ($title == 'Users' || $title == 'Admin Dashboard') ? 'active" aria-current="page"' : '"' ?> role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Admin
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="<?php echo base_url() ?>admin">Dashboard</a></li>
+                            <li><a class="dropdown-item" href="<?php echo base_url() ?>admin/personen">Personen</a></li>
+                        </ul>
+                    </li>
                 <?php endif; ?>
+
             </ul>
         </div>
         <div class="navbar-text me-4">
