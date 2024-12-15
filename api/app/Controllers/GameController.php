@@ -9,9 +9,17 @@ class GameController extends BaseController
 {
     public function index(): string
     {
-        return view('Pacman');
+        $data = [
+            'title' => 'Game Dashboard'
+        ];
+        return view('pages/games/GameDashboard' , $data);
     }
 
+
+    public function getPacman(): string
+    {
+        return view('pages/games/Pacman');
+    }
     /**
      * @throws ReflectionException
      */
@@ -19,6 +27,7 @@ class GameController extends BaseController
     {
         $personenModel = new PersonenModel();
         $personenModel->update($_COOKIE['userid'], ['highscore' => $highscore]);
+
 
         return $this->response->setJSON(['success' => true, 'highscore' => $highscore]);
     }

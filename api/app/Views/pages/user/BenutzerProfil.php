@@ -12,11 +12,10 @@
             </h3>
         </div>
         <div class="card-body">
-            <a href="<?= base_url('game') ?>" class="btn btn-primary">Spiel Starten</a>
             <div class="container text-wrap">
                 <h5>
 <!--                    TODO-->
-                    High Scores
+                    TODO
                 </h5>
             </div>
         </div>

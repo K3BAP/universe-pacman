@@ -14,7 +14,7 @@ class LeaderboardController extends BaseController
             'title' => 'Leaderboard',
             'users' => $personenModel->orderBy('highscore', 'DESC')->findAll(),
         ];
-        return view('Leaderboard', $data);
+        return view('pages/Leaderboard', $data);
     }
 
     public function getHighestScore()

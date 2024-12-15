@@ -26,7 +26,9 @@
                                 oder
                             </div>
                             <a role="button" class="btn btn-secondary mb-4 w-100" href="<?php echo base_url('benutzer/erstellen');?>">Neuen Account erstellen</a>
+                            <hr class="my-4">
 
+                            <a href="<?php echo base_url('benutzer/gast');?>">Als Gast fortfahren</a>
                         </form>
 
                     </div>

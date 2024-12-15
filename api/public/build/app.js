@@ -1219,7 +1219,7 @@ class GameCoordinator {
     head.appendChild(link);
   }
   submitHighscore(highscore) {
-    fetch(BASE_URL + 'game/submitHighscore/' + highscore, {
+    fetch(BASE_URL + 'leaderboard/submitHighscore/' + highscore, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -1240,7 +1240,7 @@ class GameCoordinator {
         });
   }
   getHighscore() {
-    return fetch(BASE_URL + 'game/getHighscore', {
+    return fetch(BASE_URL + 'leaderboard/getHighscore', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json'
@@ -1249,7 +1249,7 @@ class GameCoordinator {
         .then(response => response.json())
         .then(data => {
           if (data.success) {
-            console.log('Retrieved Highscore:', data.highscore);
+            // console.log('Retrieved Highscore:', data.highscore);
             localStorage.setItem('highScore', data.highscore);
           } else {
             console.error('Failed to fetch highscore:', data.error);

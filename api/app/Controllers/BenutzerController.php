@@ -95,7 +95,7 @@ class BenutzerController extends BaseController
         setcookie('userlastname', "", "0", "/");
         setcookie('useremail', "", "0", "/");
         setcookie('permissionLevel', "0", "0", "/");
-        return redirect()->to(base_url('tasks'));
+        return redirect()->to(base_url());
     }
 
     public function getBenutzerProfil(){

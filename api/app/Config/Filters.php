@@ -27,6 +27,7 @@ class Filters extends BaseConfig
         'secureheaders' => SecureHeaders::class,
         'adminAuthentification'     => \App\Filters\adminAuthentification::class,
         'loginAuthentification'      => \App\Filters\loginAuthentification::class,
+        'userAuthentification'      => \App\Filters\userAuthentification::class,
     ];
 
     /**
@@ -50,6 +51,7 @@ class Filters extends BaseConfig
                     '/anmelden',
                 ],
             ],
+
 
         ],
         'after' => [
