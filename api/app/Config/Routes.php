@@ -24,6 +24,7 @@ $routes->get('denied', 'ErrorController::index');
 
 // Login Protected routes
 $routes->get('/', 'HomeController::index');
+$routes->get('info', 'HomeController::getInfo');
 $routes->get('leaderboard', 'LeaderboardController::index');
 
 // Benutzer Protected routes
@@ -46,4 +47,5 @@ $routes->group('/', ['filter' => 'adminAuthentification', 'namespace' => 'App\Co
     $routes->post('personen/bearbeiten/(:num)', 'UserController::postPersonBearbeiten/$1');
     $routes->post('personen/loeschen/(:num)', 'UserController::postPersonLoeschen/$1');
     $routes->post('personen/person/(:num)', 'UserController::postPersonInfo/$1');
+    $routes->get('/test', 'AdminController::test');
 });

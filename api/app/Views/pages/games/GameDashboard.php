@@ -13,7 +13,7 @@
                     <div class="col-md-4">
                         <a href="<?= base_url('pacman') ?>" class="card-link">
                             <div class="card">
-                                <img src="<?= base_url('resources/images/games/Pacman.jpg') ?>" class="card-img-top" alt="Pacman">
+                                <img src="<?= base_url('public/resources/images/games/Pacman.jpg') ?>" class="card-img-top" alt="Pacman">
                                 <div class="card-body">
                                     <h5 class="card-title">Pacman</h5>
                                 </div>
@@ -23,7 +23,7 @@
                     <div class="col-md-4">
                         <a href="<?= base_url('game') ?>" class="card-link">
                             <div class="card h-100">
-                                <img src="<?= base_url('resources/images/games/Game.jpg') ?>" class="card-img-top" alt="Game 2">
+                                <img src="<?= base_url('public/resources/images/games/Game.jpg') ?>" class="card-img-top" alt="Game 2">
                                 <div class="card-body">
                                     <h5 class="card-title">Game 2</h5>
                                 </div>
@@ -33,7 +33,7 @@
                     <div class="col-md-4">
                         <a href="<?= base_url('game') ?>" class="card-link">
                             <div class="card h-100">
-                                <img src="<?= base_url('resources/images/games/Game.jpg') ?>" class="card-img-top" alt="Game 3">
+                                <img src="<?= base_url('public/resources/images/games/Game.jpg') ?>" class="card-img-top" alt="Game 3">
                                 <div class="card-body">
                                     <h5 class="card-title">Game 3</h5>
                                 </div>

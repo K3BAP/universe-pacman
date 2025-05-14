@@ -12,9 +12,17 @@ class AdminController extends BaseController
     {
         $data = [
             'title' => 'Admin Dashboard',
+            'scripts' => true,
         ];
         echo view('pages/admin/AdminDashboard', $data);
     }
 
-
+    public function test(): string
+    {
+        $data = [
+            'title' => 'Test',
+            'scripts' => true,
+        ];
+        return view('pages/admin/TestView', $data);
+    }
 }

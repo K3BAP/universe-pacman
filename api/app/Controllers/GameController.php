@@ -18,7 +18,10 @@ class GameController extends BaseController
 
     public function getPacman(): string
     {
-        return view('pages/games/Pacman');
+        $data = [
+            'title' => 'Pacman',
+        ];
+        return view('pages/games/Pacman', $data);
     }
     /**
      * @throws ReflectionException

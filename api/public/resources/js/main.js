@@ -255,37 +255,15 @@ function showToast(tableName, action) {
     toast.show();
 }
 
-$(document).ready(function () {
-    $.ajax({
-        url: 'https://api.github.com/repos/JDeffner/Webentwicklung/commits?per_page=5',
-        type: 'GET',
-        success: function(data) {
-            let commitList = '';
-            for (let i = 0; i < data.length; i++) {
-                if (!data[i].parents.some(parent => parent.hasOwnProperty('pull_request'))) {
-                    if (commitList !== '') {
-                        commitList += '<hr>';
-                    }
-                    commitList += `
-                    <img src="${data[i].author.avatar_url}" width="20" height="20">
-                    <a class="footer-link" href="${data[i].author.html_url}">${data[i].commit.author.name}</a> <br>
-                    <a class="footer-link" href="${data[i].html_url}">${data[i].commit.message}</a> <br>
-                    <small>${new Date(data[i].commit.author.date).toLocaleDateString('de-DE')}</small>
-                    `;
-                }
-            }
-            $('#infoGit').popover({
-                trigger: 'hover focus',
-                html: true,
-                title: 'Recent Commits',
-                content: commitList,
-                placement: 'bottom'
-            });
-        },
-        error: function(error) {
-            // console.error('Error:', error);
-        }
-    });
+
+const navEl = document.querySelector('.navbar');
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY >= 56) {
+        navEl.classList.add('navbar-scrolled');
+    } else if (window.scrollY < 56) {
+        navEl.classList.remove('navbar-scrolled');
+    }
 });
 
 

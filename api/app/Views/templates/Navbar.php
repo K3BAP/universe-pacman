@@ -1,7 +1,8 @@
-<nav class="navbar navbar-expand-md mb-4">
+<nav class="navbar navbar-expand-md mb-4 fixed-top">
     <div class="container-fluid">
-        <a class="navbar-brand ps-4" href="<?php echo base_url(); ?>">
-            <img src="<?php echo base_url();?>public/resources/images/fsi_trier_weiss.png" alt="FSR Logo" height="70"">
+        <a class="navbar-brand ps-4 fw-bold me-5" href="<?php echo base_url(); ?>">
+<!--            <img src="--><?php //echo base_url();?><!--public/resources/images/fsi_trier_weiss.png" alt="FSR Logo" height="70"">-->
+            Universe LAN XXX
         </a>
 
 
@@ -24,7 +25,9 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="<?php echo base_url() ?>admin">Dashboard</a></li>
+                            <li><a class="dropdown-item" href="<?php echo base_url() ?>info">Informationen</a></li>
                             <li><a class="dropdown-item" href="<?php echo base_url() ?>admin/personen">Personen</a></li>
+                            <li><a class="dropdown-item" href="<?php echo base_url() ?>test">Test</a></li>
                         </ul>
                     </li>
                 <?php endif; ?>

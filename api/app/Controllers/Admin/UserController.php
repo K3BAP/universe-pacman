@@ -11,6 +11,7 @@ class UserController extends BaseController
     {
         $data = [
             'title' => 'Users',
+            'scripts' => true,
         ];
         $personenModel = new PersonenModel();
         $data['personen'] = $personenModel->getDashboardData();

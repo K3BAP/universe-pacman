@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html lang="en" data-bs-theme="dark" class="custom-scrollbar">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,8 +19,8 @@
     </script>
     <script defer src="<?php echo base_url();?>public/resources/js/main.js"></script>
 <!-- Page specific scripts   -->
-    <?php if (isset($title)) : ?>
+    <?php if (isset($scripts)) : ?>
         <script defer src="<?php echo base_url();?>public/resources/js/<?= strtolower($title) ?>.js"></script>
     <?php endif; ?>
 </head>
-<body class="bg-primary-subtle">
+

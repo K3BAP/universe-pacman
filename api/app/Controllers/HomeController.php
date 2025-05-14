@@ -14,4 +14,12 @@ class HomeController extends BaseController
         ];
         return view('pages/HomeView', $data);
     }
+
+    public function getInfo(): string
+    {
+        $data = [
+            'title' => 'Informationen',
+        ];
+        return view('pages/InfoView', $data);
+    }
 }

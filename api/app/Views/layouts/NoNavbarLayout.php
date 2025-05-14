@@ -3,14 +3,13 @@
 
 <?= $this->include('templates/Head') ?>
 
-<body class="bg-primary-subtle" style="padding-top: 6em">
-
-<?= $this->include('templates/Navbar') ?>
-
+<body class="bg-primary-subtle">
 
 <?= $this->renderSection('content') ?>
 
 
 <?= $this->include('templates/Footer') ?>
+
+
 </body>
 </html>
