@@ -15,7 +15,7 @@
       gtag('config', 'UA-142539004-1');
     </script>
 
-    <script src='<?= base_url() ?>build/app.js'></script>
+    <script src='<?= base_url() ?>public/build/app.js'></script>
     <link rel='shortcut icon' type='image/x-icon' href='favicon.ico'>
     <link href='https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/icon?family=Material+Icons'
@@ -32,13 +32,13 @@
 
   <body>
     <div id='overflow-mask' class='overflow-mask'>
-      <img id='backdrop' class='backdrop' src='<?= base_url() ?>app/style/graphics/backdrop.png'>
+      <img id='backdrop' class='backdrop' src='<?= base_url() ?>public/app/style/graphics/backdrop.png'>
 
       <div id='fps-display' class='fps-display'></div>
       <div id='preload-div' class='preload-div'></div>
 
       <div id='main-menu-container' class='main-menu-container'>
-        <img id='logo' class='logo' src='<?= base_url() ?>app/style/graphics/pacman_logo.png'>
+        <img id='logo' class='logo' src='<?= base_url() ?>public/app/style/graphics/pacman_logo.png'>
         <button id='game-start' class='game-start'>
           PLAY
         </button>
@@ -78,7 +78,7 @@
         </div>
 
         <div id='maze' class='maze'>
-          <img id='maze-img' class='maze-img' src='<?= base_url() ?>app/style//graphics/spriteSheets/maze/maze_blue.svg'>
+          <img id='maze-img' class='maze-img' src='<?= base_url() ?>public/app/style//graphics/spriteSheets/maze/maze_blue.svg'>
           <div id='maze-cover' class='maze-cover'></div>
           <div id='dot-container'></div>
           <p id='pacman' class='pacman'></p>

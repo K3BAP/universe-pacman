@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md mb-4">
     <div class="container-fluid">
         <a class="navbar-brand ps-4" href="<?php echo base_url(); ?>">
-            <img src="<?php echo base_url();?>resources/images/fsi_trier_weiss.png" alt="FSR Logo" height="70"">
+            <img src="<?php echo base_url();?>public/resources/images/fsi_trier_weiss.png" alt="FSR Logo" height="70"">
         </a>
 
 
