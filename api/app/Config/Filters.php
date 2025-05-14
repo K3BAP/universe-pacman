@@ -45,7 +45,7 @@ class Filters extends BaseConfig
             // 'secureheaders',
             'loginAuthentification' => [
                 'except' => [
-                    '/',
+//                    '/',
                     '/benutzer/*',
                     '/login',
                     '/anmelden',
