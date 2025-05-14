@@ -155,6 +155,17 @@ body::before {
     box-shadow: 0.2em 0.5em 1em rgba(0,0,0, 0.7);
     backdrop-filter: blur(1ex);
 }
+
+.card-img-overlay {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0)); /* Black gradient */
+}
+.card:hover > .card-game-img {
+    transform: scale(1.1);
+}
+
+.card-game-img {
+    transition: transform 0.3s ease;
+}
 .toast {
     backdrop-filter: blur(3px);
     background-color: rgba(var(--bs-secondary-rgb), 0.7);

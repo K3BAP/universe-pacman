@@ -8,8 +8,8 @@
                     Leaderboard
                 </h3>
             </div>
-            <div class="card-body">
-                <table class="table">
+            <div class="card-body py-0 px-0">
+                <table class="table bg-transparent">
                     <thead>
                     <tr>
                         <th scope="col">Platz</th>
