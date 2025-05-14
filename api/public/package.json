@@ -6,11 +6,11 @@
     "all": true
   },
   "scripts": {
-    "test": "nyc --check-coverage --lines 100 --functions 100 --branches 100 mocha app/tests",
+    "test": "nyc --check-coverage --lines 100 --functions 100 --branches 100 mocha games/pacman/app/tests",
     "coverage": "nyc report --reporter=text-lcov | node ./node_modules/coveralls/bin/coveralls.js",
     "lint": "./node_modules/.bin/eslint .",
     "serve": "node ./node_modules/http-server/bin/http-server",
-    "deploy:local": "bash ./deploy-local.sh"
+    "deploy:local": "bash games/pacman/deploy-local.sh"
   },
   "husky": {
     "hooks": {

@@ -27,7 +27,6 @@
                             <li><a class="dropdown-item" href="<?php echo base_url() ?>admin">Dashboard</a></li>
                             <li><a class="dropdown-item" href="<?php echo base_url() ?>info">Informationen</a></li>
                             <li><a class="dropdown-item" href="<?php echo base_url() ?>admin/personen">Personen</a></li>
-                            <li><a class="dropdown-item" href="<?php echo base_url() ?>test">Test</a></li>
                         </ul>
                     </li>
                 <?php endif; ?>

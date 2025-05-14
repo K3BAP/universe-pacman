@@ -175,13 +175,13 @@ class Ghost {
     }
 
     if (mode === 'scared') {
-      this.animationTarget.style.backgroundImage = 'url(public/app/style/graphics/'
+      this.animationTarget.style.backgroundImage = 'url(public/games/pacman/app/style/graphics/'
         + `spriteSheets/characters/ghosts/scared_${this.scaredColor}.svg)`;
     } else if (mode === 'eyes') {
-      this.animationTarget.style.backgroundImage = 'url(public/app/style/graphics/'
+      this.animationTarget.style.backgroundImage = 'url(public/games/pacman/app/style/graphics/'
         + `spriteSheets/characters/ghosts/eyes_${direction}.svg)`;
     } else {
-      this.animationTarget.style.backgroundImage = 'url(public/app/style/graphics/'
+      this.animationTarget.style.backgroundImage = 'url(public/games/pacman/app/style/graphics/'
         + `spriteSheets/characters/ghosts/${name}/${name}_${direction}`
         + `${emotion}.svg)`;
     }
@@ -862,7 +862,7 @@ class Pacman {
     this.setStyleMeasurements(this.scaledTileSize, this.spriteFrames);
     this.setDefaultPosition(this.scaledTileSize);
     this.setSpriteSheet(this.direction);
-    this.pacmanArrow.style.backgroundImage = 'url(public/app/style/graphics/'
+    this.pacmanArrow.style.backgroundImage = 'url(public/games/pacman/app/style/graphics/'
       + `spriteSheets/characters/pacman/arrow_${this.direction}.svg)`;
   }
 
@@ -941,7 +941,7 @@ class Pacman {
    * @param {('up'|'down'|'left'|'right')} direction - The character's current travel orientation
    */
   setSpriteSheet(direction) {
-    this.animationTarget.style.backgroundImage = 'url(public/app/style/graphics/'
+    this.animationTarget.style.backgroundImage = 'url(public/games/pacman/app/style/graphics/'
       + `spriteSheets/characters/pacman/pacman_${direction}.svg)`;
   }
 
@@ -953,7 +953,7 @@ class Pacman {
     this.backgroundOffsetPixels = 0;
     const bgSize = this.measurement * this.spriteFrames;
     this.animationTarget.style.backgroundSize = `${bgSize}px`;
-    this.animationTarget.style.backgroundImage = 'url(public/app/style/'
+    this.animationTarget.style.backgroundImage = 'url(public/games/pacman/app/style/'
       + 'graphics/spriteSheets/characters/pacman/pacman_death.svg)';
     this.animationTarget.style.backgroundPosition = '0px 0px';
     this.pacmanArrow.style.backgroundImage = '';
@@ -966,7 +966,7 @@ class Pacman {
    */
   changeDirection(newDirection, startMoving) {
     this.desiredDirection = newDirection;
-    this.pacmanArrow.style.backgroundImage = 'url(public/app/style/graphics/'
+    this.pacmanArrow.style.backgroundImage = 'url(public/games/pacman/app/style/graphics/'
       + `spriteSheets/characters/pacman/arrow_${this.desiredDirection}.svg)`;
 
     if (startMoving) {
@@ -1212,7 +1212,7 @@ class GameCoordinator {
     const head = document.getElementsByTagName('head')[0];
     const link = document.createElement('link');
     link.rel = 'stylesheet';
-    link.href = 'public/build/app.css';
+    link.href = 'public/games/pacman/build/app.css';
 
     link.onload = this.preloadAssets.bind(this);
 
@@ -1379,7 +1379,7 @@ class GameCoordinator {
       const loadingPacman = document.getElementById('loading-pacman');
       const loadingDotMask = document.getElementById('loading-dot-mask');
 
-      const imgBase = 'public/app/style/graphics/spriteSheets/';
+      const imgBase = 'public/games/pacman/app/style/graphics/spriteSheets/';
       const imgSources = [
         // Pacman
         `${imgBase}characters/pacman/arrow_down.svg`,
@@ -1468,10 +1468,10 @@ class GameCoordinator {
         `${imgBase}maze/maze_blue.svg`,
 
         // Misc
-        'public/app/style/graphics/extra_life.png',
+        'public/games/pacman/app/style/graphics/extra_life.png',
       ];
 
-      const audioBase = 'public/app/style/audio/';
+      const audioBase = 'public/games/pacman/app/style/audio/';
       const audioSources = [
         `${audioBase}game_start.mp3`,
         `${audioBase}pause.mp3`,
@@ -1822,7 +1822,7 @@ class GameCoordinator {
 
     for (let i = 0; i < this.lives; i += 1) {
       const extraLifePic = document.createElement('img');
-      extraLifePic.setAttribute('src', 'public/app/style/graphics/extra_life.svg');
+      extraLifePic.setAttribute('src', 'public/games/pacman/app/style/graphics/extra_life.svg');
       extraLifePic.style.height = `${this.scaledTileSize * 2}px`;
       this.extraLivesDisplay.appendChild(extraLifePic);
     }
@@ -2175,7 +2175,7 @@ class GameCoordinator {
     this.removeTimer({ detail: { timer: this.endIdleTimer } });
     this.removeTimer({ detail: { timer: this.ghostFlashTimer } });
 
-    const imgBase = 'public/app/style//graphics/spriteSheets/maze/';
+    const imgBase = 'public/games/pacman/app/style//graphics/spriteSheets/maze/';
 
     new Timer(() => {
       this.ghosts.forEach((ghost) => {
@@ -2377,7 +2377,7 @@ class GameCoordinator {
 
     pointsDiv.style.position = 'absolute';
     pointsDiv.style.backgroundSize = `${width}px`;
-    pointsDiv.style.backgroundImage = 'url(public/app/style/graphics/'
+    pointsDiv.style.backgroundImage = 'url(public/games/pacman/app/style/graphics/'
         + `spriteSheets/text/${amount}.svg`;
     pointsDiv.style.width = `${width}px`;
     pointsDiv.style.height = `${height || width}px`;
@@ -2696,7 +2696,7 @@ class Pickup {
       image = type;
     }
 
-    return `url(public/app/style/graphics/spriteSheets/pickups/${image}.svg)`;
+    return `url(public/games/pacman/app/style/graphics/spriteSheets/pickups/${image}.svg)`;
   }
 
   /**
@@ -3085,7 +3085,7 @@ class CharacterUtil {
 
 class SoundManager {
   constructor() {
-    this.baseUrl = 'public/app/style/audio/';
+    this.baseUrl = 'public/games/pacman/app/style/audio/';
     this.fileFormat = 'mp3';
     this.masterVolume = 1;
     this.paused = false;
