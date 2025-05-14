@@ -1,6 +1,6 @@
 <div class="row g-4">
     <div class="col-md-4 flex-fill">
-        <div class="card text-dark h-100">
+        <div class="card text-dark h-100 blured-background">
             <div class="card-body">
                 <h2 class="card-title mb-4">Willkommen auf der UNIverse LAN!</h2>
                 <p class="card-text">

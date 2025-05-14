@@ -1,6 +1,6 @@
 
 <footer>
-    <div class="container-xxl mb-3 mt-3 py-md-3 d-flex flex-wrap justify-content-between align-items-center">
+    <div class="container-xxl mb-3 mt-2 py-md-3 d-flex flex-wrap justify-content-between align-items-center">
 <!--                        <span class="footer-text">-->
 <!--                            © FSR Informatik 2024-->
 <!--                        </span>-->
