@@ -20,7 +20,9 @@
     <script defer src="<?php echo base_url();?>public/resources/js/main.js"></script>
 <!-- Page specific scripts   -->
     <?php if (isset($scripts)) : ?>
-        <script defer src="<?php echo base_url();?>public/resources/js/<?= strtolower($title) ?>.js"></script>
+        <?php foreach ($scripts as $script) : ?>
+            <script defer src="<?php echo base_url();?>public/resources/js/<?= $script ?>"></script>
+        <?php endforeach; ?>
     <?php endif; ?>
 </head>
 

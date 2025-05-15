@@ -12,7 +12,6 @@ class AdminController extends BaseController
     {
         $data = [
             'title' => 'Admin Dashboard',
-            'scripts' => true,
         ];
         echo view('pages/admin/AdminDashboard', $data);
     }
@@ -21,7 +20,6 @@ class AdminController extends BaseController
     {
         $data = [
             'title' => 'Test',
-            'scripts' => true,
         ];
         return view('pages/admin/TestView', $data);
     }

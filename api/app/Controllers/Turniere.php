@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\MatchesModel;
 use App\Models\TournamentsModel;
 use App\Models\TournamentParticipantsModel;
 use CodeIgniter\Exceptions\PageNotFoundException;
@@ -17,6 +18,9 @@ class Turniere extends BaseController
         $data = [
             'title' => 'Turniere',
             'tournaments' => $tournaments,
+            'scripts' => [
+                'turniere.js',
+            ],
         ];
         return view('pages/TurniereView', $data);
     }
@@ -124,9 +128,54 @@ class Turniere extends BaseController
         return redirect()->to('/turniere')->with('success', 'Tournament concluded.');
     }
 
-    private function generateDoubleEliminationBrackets($participants)
+    public function generateDoubleEliminationBrackets($tournamentId)
     {
-        // Placeholder for bracket generation logic
-        // Implement the double elimination algorithm here
+        $participantsModel = new TournamentParticipantsModel();
+        $matchesModel = new MatchesModel();
+
+        // Fetch participants
+        $participants = $participantsModel->where('tournament_id', $tournamentId)->findAll();
+
+        // Shuffle participants
+        shuffle($participants);
+
+        // Winners' Bracket - Round 1
+        $round = 1;
+        $bracket = 'winners';
+
+        for ($i = 0; $i < count($participants); $i += 2) {
+            $participant1 = $participants[$i];
+            $participant2 = $participants[$i + 1] ?? null; // Handle odd number of participants
+
+            $matchesModel->insert([
+                'tournament_id' => $tournamentId,
+                'round' => $round,
+                'bracket' => $bracket,
+                'participant1_id' => $participant1['user_id'],
+                'participant2_id' => $participant2['user_id'] ?? null,
+                'participant_type' => 'user',
+            ]);
+        }
+    }
+
+    public function getBracket($tournamentId)
+    {
+        $matchesModel = new MatchesModel();
+        $bracket = $matchesModel->where('tournament_id', $tournamentId)->findAll();
+
+        return $this->response->setJSON($bracket);
+    }
+
+    public function postMatch()
+    {
+        $matchesModel = new MatchesModel();
+        $data = $this->request->getJSON(true);
+
+        $matchesModel->update($data['matchId'], [
+            'winner_id' => $data['winnerId'],
+            'loser_id' => $data['loserId'],
+        ]);
+
+        return $this->response->setJSON(['status' => 'success']);
     }
 }
