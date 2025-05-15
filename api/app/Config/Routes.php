@@ -26,7 +26,7 @@ $routes->get('info', 'HomeController::getInfo');
 // Benutzer Protected routes
 $routes->group('/', ['filter' => 'userAuthentification'], function($routes) {
     $routes->get('abmelden', 'BenutzerController::getBenutzerAbmelden');
-    $routes->get('profil', 'BenutzerController::getBenutzerProfil');
+//    $routes->get('profil', 'BenutzerController::getBenutzerProfil');
     $routes->get('willkommen', 'BenutzerController::getBenutzerWillkommen');
 });
 

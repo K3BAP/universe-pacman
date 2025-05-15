@@ -9,7 +9,7 @@
                         <a href="<?= base_url('spiele/pacman') ?>" class="card-link">
                             <div class="card overflow-hidden h-100">
                                 <img src="<?= base_url('public/resources/images/games/Pacman/Pacman.jpg') ?>" class="card-img card-game-img" alt="Pacman">
-                                <div class="card-img-overlay align-content-end">
+                                <div class="card-img-overlay card-img-overlay-gradient align-content-end">
                                     <h2 class="card-title">Pacman</h2>
                                     <p class="card-text"><small>The Classic Arcade Game</small></p>
                                 </div>
@@ -20,7 +20,7 @@
                         <a href="<?= base_url('spiele') ?>" class="card-link">
                             <div class="card overflow-hidden h-100">
                                 <img src="<?= base_url('public/resources/images/games/Placeholder.jpg') ?>" class="card-img card-game-img" alt="Game 2">
-                                <div class="card-img-overlay align-content-end">
+                                <div class="card-img-overlay card-img-overlay-gradient align-content-end">
                                     <h2 class="card-title">Game 2</h2>
                                     <p class="card-text"><small>Another Exciting Game</small></p>
                                 </div>
@@ -31,7 +31,7 @@
                         <a href="<?= base_url('spiele') ?>" class="card-link">
                             <div class="card overflow-hidden h-100">
                                 <img src="<?= base_url('public/resources/images/games/Placeholder.jpg') ?>" class="card-img card-game-img" alt="Game 3">
-                                <div class="card-img-overlay align-content-end">
+                                <div class="card-img-overlay card-img-overlay-gradient align-content-end">
                                     <h2 class="card-title">Game 3</h2>
                                     <p class="card-text"><small>Yet Another Fun Game</small></p>
                                 </div>

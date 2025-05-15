@@ -98,11 +98,4 @@ class BenutzerController extends BaseController
         return redirect()->to(base_url());
     }
 
-    public function getBenutzerProfil(){
-        $data = [
-            'title' => 'Profil',
-        ];
-        echo view('pages/user/BenutzerProfil', $data);
-    }
-
 }

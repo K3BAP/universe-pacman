@@ -29,11 +29,21 @@ class PersonenModel extends Model
             ->get()->getRowArray();
     }
 
-    public function getSecurePerson($id): array
+    public function getSecurePerson($userid): array
     {
         return $this->db->table($this->table)
             ->select('vorname, nachname')
-            ->where('id', $id)
+            ->where('id', $userid)
+            ->get()->getResultArray();
+    }
+
+    public function getProfileData($userid): array
+    {
+        return $this->db->table($this->table)
+            ->select('personen.id, vorname, nachname, game_accounts.gameid, game_accounts.username, game_accounts.usertag discord_accounts.username')
+            ->join('game_accounts', 'personen.id = game_accounts.personenid', 'left')
+            ->join('discord_accounts', 'personen.id = discord_accounts.personenid', 'left')
+            ->where('personen.id', $userid)
             ->get()->getResultArray();
     }
 
