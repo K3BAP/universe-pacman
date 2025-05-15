@@ -27,7 +27,7 @@
                         Admin
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="<?php echo base_url() ?>admin">Dashboard</a></li>
+<!--                            <li><a class="dropdown-item" href="--><?php //echo base_url() ?><!--admin">Dashboard</a></li>-->
                             <li><a class="dropdown-item" href="<?php echo base_url() ?>info">Informationen</a></li>
                             <li><a class="dropdown-item" href="<?php echo base_url() ?>admin/personen">Personen</a></li>
                         </ul>
@@ -50,11 +50,13 @@
                     <li><a class="dropdown-item" href="<?php echo base_url();?>anmelden"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
                 </ul>
                 <?php else : ?>
-                    Gast
-                    <i class="fa-solid fa-user iconClickable dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #21d50d;"></i>
-                    <ul class="dropdown-menu dropdown-menu-end">
-                        <li><a class="dropdown-item" href="<?php echo base_url();?>anmelden"><i class="fa-solid fa-right-to-bracket"></i> Anmelden</a></li>
-                    </ul>
+                    <a role="button" class="btn btn-secondary" href="<?php echo base_url(); ?>anmelden">Anmelden</a>
+                    <a role="button" class="btn btn-primary" href="<?php echo base_url(); ?>benutzer/erstellen">Registrieren</a>
+<!--                    Gast-->
+<!--                    <i class="fa-solid fa-user iconClickable dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #21d50d;"></i>-->
+<!--                    <ul class="dropdown-menu dropdown-menu-end">-->
+<!--                        <li><a class="dropdown-item" href="--><?php //echo base_url();?><!--anmelden"><i class="fa-solid fa-right-to-bracket"></i> Anmelden</a></li>-->
+<!--                    </ul>-->
                 <?php endif; ?>
             </div>
         </div>

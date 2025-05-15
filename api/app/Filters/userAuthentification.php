@@ -11,8 +11,8 @@ class userAuthentification implements FilterInterface
     public function before(RequestInterface $request, $arguments = null)
     {
         // Do something here
-        if ($_COOKIE['permissionLevel'] < 1 || !isset($_COOKIE['permissionLevel'])) {
-            return redirect()->to('anmelden');
+        if ($_COOKIE['permissionLevel'] == "0") {
+        return redirect()->to('denied');
         }
     }
 

@@ -11,7 +11,8 @@
         <div class="card-body">
             <div class="container text-wrap">
                 <h5>
-                    Sie haben nicht die Berechtigung diese Seite zu sehen!
+                    Du hast nicht die Berechtigung, diese Seite zu sehen. <br>
+                    Bitte melde dich an oder registriere dich, um Zugriff zu erhalten.
                 </h5>
             </div>
         </div>
