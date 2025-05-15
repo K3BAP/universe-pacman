@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\PersonenModel;
+use App\Models\HighscoresModel;
 use ReflectionException;
 
 class GameController extends BaseController
@@ -28,23 +29,23 @@ class GameController extends BaseController
      */
     public function postSubmitHighscore($highscore)
     {
-        $personenModel = new PersonenModel();
-        $personenModel->update($_COOKIE['userid'], ['highscore' => $highscore]);
+        $highscoreModel = new HighscoresModel();
+        $gameid = 3;
+        $highscoreModel->submitHighscore($gameid, $highscore);
 
 
         return $this->response->setJSON(['success' => true, 'highscore' => $highscore]);
     }
-    public function getHighscore()
+    public function getPersonalHighscore()
     {
-        $userId = $_COOKIE['userid'];
 
-        $personenModel = new PersonenModel();
-        $user = $personenModel->find($userId);
-
-        if ($user) {
-            return $this->response->setJSON(['success' => true, 'highscore' => $user['highscore']]);
+        $highscoreModel = new HighscoresModel();
+        $gameid = 3;
+        $highscore = $highscoreModel->getPersonalHighscore($_COOKIE['userid'], $gameid);
+        if ($highscore) {
+            return $this->response->setJSON(['success' => true, 'highscore' => $highscore]);
         } else {
-            return $this->response->setJSON(['success' => false, 'error' => 'User not found']);
+            return $this->response->setJSON(['success' => false, 'error' => 'Highscore not found']);
         }
     }
 }

@@ -2,7 +2,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Added default title in case $title is not set-->
-    <title><?= ($title ?? 'Title not set') ?></title>
+    <title>LAN - <?= ($title ?? 'Title not set') ?></title>
     <link rel="icon" href="<?php echo base_url();?>public/resources/images/favicon.ico" type="image/x-icon">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.2/font/bootstrap-icons.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.22.1/bootstrap-table.min.css" rel="stylesheet">

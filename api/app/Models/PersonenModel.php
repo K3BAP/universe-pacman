@@ -8,8 +8,10 @@ class PersonenModel extends Model
 {
     protected $table = 'personen';
     protected $primaryKey = 'id';
-    protected $allowedFields = ['vorname', 'nachname', 'email', 'passwort', 'permission', 'highscore'];
+    protected $allowedFields = ['vorname', 'nachname', 'email', 'passwort', 'permission', 'banned'];
 
+    protected $createdField = 'created_at';
+    protected $dateFormat = 'date';
     protected $validationRules = 'personen';
 
     public function getDashboardData(): array

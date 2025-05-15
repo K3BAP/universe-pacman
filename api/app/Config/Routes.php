@@ -26,6 +26,7 @@ $routes->get('denied', 'ErrorController::index');
 $routes->get('/', 'HomeController::index');
 $routes->get('info', 'HomeController::getInfo');
 $routes->get('leaderboard', 'LeaderboardController::index');
+$routes->get('turniere', 'TurniereController::index');
 
 // Benutzer Protected routes
 $routes->group('/', ['filter' => 'userAuthentification'], function($routes) {
@@ -36,7 +37,7 @@ $routes->group('/', ['filter' => 'userAuthentification'], function($routes) {
     $routes->get('pacman', 'GameController::getPacman');
     $routes->post('leaderboard/submitHighscore/(:num)', 'GameController::postSubmitHighscore/$1');
     $routes->get('leaderboard/highestscore', 'LeaderboardController::getHighestScore');
-    $routes->get('leaderboard/getHighscore', 'GameController::getHighscore');
+    $routes->get('leaderboard/getHighscore', 'GameController::getPersonalHighscore');
 });
 
 // Admin Protected routes

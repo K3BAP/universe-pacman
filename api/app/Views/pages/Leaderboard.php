@@ -20,13 +20,13 @@
                     </thead>
                     <tbody>
                     <?php $place = 1;
-                    foreach ($users as $user):
+                    foreach ($highscores as $highscore):
                         ?>
                         <tr>
                             <td><?= $place++ ?></td>
-                            <td><?= $user['vorname'] ?></td>
-                            <td><?= $user['nachname'] ?></td>
-                            <td><?= $user['highscore'] ?></td>
+                            <td><?= $highscore['vorname'] ?></td>
+                            <td><?= $highscore['nachname'] ?></td>
+                            <td><?= $highscore['highscore'] ?></td>
                         </tr>
                     <?php endforeach; ?>
                     </tbody>

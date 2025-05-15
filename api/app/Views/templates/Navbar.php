@@ -18,6 +18,9 @@
                 <li class="nav-item">
                     <a class="nav-link <?php echo ($title == 'Game Dashboard') ? 'active" aria-current="page"' : '"' ?> href="<?php echo base_url(); ?>game">Spiele</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link <?php echo ($title == 'Turniere') ? 'active" aria-current="page"' : '"' ?> href="<?php echo base_url(); ?>turniere">Turniere</a>
+                </li>
                 <?php if ($_COOKIE['permissionLevel'] == '2') : ?>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle <?php echo ($title == 'Users' || $title == 'Admin Dashboard') ? 'active" aria-current="page"' : '"' ?> role="button" data-bs-toggle="dropdown" aria-expanded="false">
