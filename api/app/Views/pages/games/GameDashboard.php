@@ -6,7 +6,7 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-lg-4 col-md-6 col-sm-12">
-                        <a href="<?= base_url('pacman') ?>" class="card-link">
+                        <a href="<?= base_url('spiele/pacman') ?>" class="card-link">
                             <div class="card overflow-hidden h-100">
                                 <img src="<?= base_url('public/resources/images/games/Pacman/Pacman.jpg') ?>" class="card-img card-game-img" alt="Pacman">
                                 <div class="card-img-overlay align-content-end">
@@ -17,7 +17,7 @@
                         </a>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-12">
-                        <a href="<?= base_url('game') ?>" class="card-link">
+                        <a href="<?= base_url('spiele') ?>" class="card-link">
                             <div class="card overflow-hidden h-100">
                                 <img src="<?= base_url('public/resources/images/games/Placeholder.jpg') ?>" class="card-img card-game-img" alt="Game 2">
                                 <div class="card-img-overlay align-content-end">
@@ -28,7 +28,7 @@
                         </a>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-12">
-                        <a href="<?= base_url('game') ?>" class="card-link">
+                        <a href="<?= base_url('spiele') ?>" class="card-link">
                             <div class="card overflow-hidden h-100">
                                 <img src="<?= base_url('public/resources/images/games/Placeholder.jpg') ?>" class="card-img card-game-img" alt="Game 3">
                                 <div class="card-img-overlay align-content-end">

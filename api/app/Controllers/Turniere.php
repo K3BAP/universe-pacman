@@ -5,9 +5,9 @@ namespace App\Controllers;
 use App\Models\PersonenModel;
 use ReflectionException;
 
-class TurniereController extends BaseController
+class Turniere extends BaseController
 {
-    public function index(): string
+    public function getIndex(): string
     {
         $personenModel = new PersonenModel();
         $data = [

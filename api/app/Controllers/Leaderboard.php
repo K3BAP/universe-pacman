@@ -6,41 +6,36 @@ use App\Models\PersonenModel;
 use App\Models\HighscoresModel;
 use ReflectionException;
 
-class GameController extends BaseController
+class Leaderboard extends BaseController
 {
-    public function index(): string
+    public function getIndex(): string
     {
+        $highscoresModel = new HighscoresModel();
         $data = [
-            'title' => 'Game Dashboard'
+            'title' => 'Leaderboard',
+            'highscores' => $highscoresModel->getHighscores(3),
         ];
-        return view('pages/games/GameDashboard' , $data);
+        return view('pages/Leaderboard', $data);
     }
 
-
-    public function getPacman(): string
+    public function getHighscore($gameid)
     {
-        $data = [
-            'title' => 'Pacman',
-        ];
-        return view('pages/games/Pacman', $data);
+        $highscoresModel = new HighscoresModel();
+
+        return $this->response->setJSON(['success' => true, 'highscore' => $highscoresModel->getGlobalTopScore($gameid)]);
     }
-    /**
-     * @throws ReflectionException
-     */
-    public function postSubmitHighscore($highscore)
+    public function postSubmitHighscore($gameid, $highscore)
     {
         $highscoreModel = new HighscoresModel();
-        $gameid = 3;
         $highscoreModel->submitHighscore($gameid, $highscore);
 
 
         return $this->response->setJSON(['success' => true, 'highscore' => $highscore]);
     }
-    public function getPersonalHighscore()
+    public function getPersonalHighscore($gameid)
     {
 
         $highscoreModel = new HighscoresModel();
-        $gameid = 3;
         $highscore = $highscoreModel->getPersonalHighscore($_COOKIE['userid'], $gameid);
         if ($highscore) {
             return $this->response->setJSON(['success' => true, 'highscore' => $highscore]);

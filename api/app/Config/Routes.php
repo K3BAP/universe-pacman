@@ -8,9 +8,6 @@ use CodeIgniter\Router\RouteCollection;
 //$routes->get('/', 'Home::index');
 
 //login routes (unprotected)
-//$routes->get('/', function() {
-//    return redirect()->to('/anmelden');
-//});
 $routes->get('anmelden', 'BenutzerController::index');
 $routes->get('benutzer/erstellen', 'BenutzerController::getBenutzerErstellen');
 $routes->post('benutzer/erstellen', 'BenutzerController::postBenutzerErstellen');
@@ -25,19 +22,12 @@ $routes->get('denied', 'ErrorController::index');
 // Login Protected routes
 $routes->get('/', 'HomeController::index');
 $routes->get('info', 'HomeController::getInfo');
-$routes->get('leaderboard', 'LeaderboardController::index');
-$routes->get('turniere', 'TurniereController::index');
 
 // Benutzer Protected routes
 $routes->group('/', ['filter' => 'userAuthentification'], function($routes) {
     $routes->get('abmelden', 'BenutzerController::getBenutzerAbmelden');
     $routes->get('profil', 'BenutzerController::getBenutzerProfil');
     $routes->get('willkommen', 'BenutzerController::getBenutzerWillkommen');
-    $routes->get('game', 'GameController::index');
-    $routes->get('pacman', 'GameController::getPacman');
-    $routes->post('leaderboard/submitHighscore/(:num)', 'GameController::postSubmitHighscore/$1');
-    $routes->get('leaderboard/highestscore', 'LeaderboardController::getHighestScore');
-    $routes->get('leaderboard/getHighscore', 'GameController::getPersonalHighscore');
 });
 
 // Admin Protected routes

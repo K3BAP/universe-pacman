@@ -16,7 +16,7 @@
                     <a class="nav-link <?php echo ($title == 'Leaderboard') ? 'active" aria-current="page"' : '"' ?> href="<?php echo base_url(); ?>leaderboard">Leaderboard</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <?php echo ($title == 'Game Dashboard') ? 'active" aria-current="page"' : '"' ?> href="<?php echo base_url(); ?>game">Spiele</a>
+                    <a class="nav-link <?php echo ($title == 'Game Dashboard') ? 'active" aria-current="page"' : '"' ?> href="<?php echo base_url(); ?>spiele">Spiele</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link <?php echo ($title == 'Turniere') ? 'active" aria-current="page"' : '"' ?> href="<?php echo base_url(); ?>turniere">Turniere</a>

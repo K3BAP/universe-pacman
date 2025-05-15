@@ -16,7 +16,6 @@
     </script>
 
     <script src='<?= base_url() ?>public/games/pacman/build/app.js'></script>
-    <link rel='shortcut icon' type='image/x-icon' href='favicon.ico'>
     <link href='https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/icon?family=Material+Icons'
       rel='stylesheet'>
